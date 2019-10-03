@@ -1,0 +1,186 @@
+<html lang="pl-PL">
+<head>
+	<title>Bootstrap Example</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<!-- JQuerry -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	
+	<!-- Bootstrap -->
+	<!-- https://getbootstrap.com/ -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	
+	<!-- Icons -->
+	<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<!-- Some extra hover effect -->
+	<link rel="stylesheet" type="text/css" href="css/img_hovereffect.css">
+	
+	<!-- Scrollbar style -->
+	<link rel="stylesheet" type="text/css" href="css/scrollbar_style.css">
+	
+	<!-- bootstrap-select -->
+	<!-- https://developer.snapappointments.com/bootstrap-select/ -->
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" type="text/css" href="bootstrap-select-1.13.9/dist/css/bootstrap-select.css">
+	<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/css/bootstrap-select.min.css"> -->
+	
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="bootstrap-select-1.13.9/dist/js/bootstrap-select.js"></script>
+	<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/js/bootstrap-select.min.js"></script> -->
+	
+	<!-- (Optional) Latest compiled and minified JavaScript translation files -->
+	<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/js/i18n/defaults-*.min.js"></script> -->
+	<script>//$.fn.selectpicker.Constructor.BootstrapVersion = '4';</script>
+	
+	<style>
+		.has-error .bootstrap-select .dropdown-toggle,
+		.error .bootstrap-select .dropdown-toggle,
+		.bootstrap-select.is-invalid .dropdown-toggle,
+		.was-validated .bootstrap-select .selectpicker:invalid + .dropdown-toggle {
+			border-color: #dc3545;
+		}
+		.input-group > .form-control:not(:last-child),
+		.input-group > .custom-select:not(:last-child) {
+			border-top-right-radius: 0.25rem;
+			border-bottom-right-radius: 0.25rem;
+		}
+	</style>
+</head>
+<body>
+	<div class="container" style="max-width: 1000px">
+		<div class="jumbotron" style="margin-top: 10%">
+			<form action="/register.php" class="needs-validation" method="post" novalidate>
+				<div class="form-row">
+					<div class="col">
+						<div class="form-group">
+							<label for="uname">Nazwa użytkownika:</label>
+							<div class="input-group mb-3">
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i class="fas fa-user"></i></span>
+								</div>
+								<input type="text" class="form-control" id="uname" placeholder="Wpisz nazwę użytkownika" name="uname" required>
+								<div class="invalid-feedback">Wypełnij to pole.</div>
+							</div>
+						</div>
+					</div>
+					<div class="col" id="test1">
+						<div class="form-group">
+							<label for="pwd">Hasło:</label>
+							<div class="input-group mb-3">
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i class="fas fa-lock"></i></span>
+								</div>
+								<input type="password" class="form-control" id="pwd" placeholder="Wpisz hasło" name="pswd" required>
+								<div class="invalid-feedback">Wypełnij to pole.</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="col"></div>
+					<div class="col">
+						<div class="form-group">
+							<label for="pwd2">Powtórz hasło:</label>
+							<div class="input-group mb-3">
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i class="fas fa-lock"></i></span>
+								</div>
+								<input type="password" class="form-control" id="pwd2" placeholder="Powtórz hasło" name="pswd2" required>
+								<div class="invalid-feedback">Wypełnij to pole.</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="col">
+						<div class="form-group">
+							<label for="name">Imię:</label>
+							<input type="text" class="form-control" id="name" placeholder="" name="name" required>
+							<div class="invalid-feedback">Wypełnij to pole.</div>
+						</div>
+					</div>
+					<div class="col">
+						<div class="form-group">
+							<label for="surname">Nazwisko:</label>
+							<input type="text" class="form-control" id="surname" placeholder="" name="surname" required>
+							<div class="invalid-feedback">Wypełnij to pole.</div>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="e-mail">Adres e-mail:</label>
+					<div class="input-group mb-3">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fa fa-at"></i></span>
+						</div>
+						<input type="email" class="form-control" id="e-mail" placeholder="" name="e-mail" required>
+						<div class="invalid-feedback">Wypełnij to pole.</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="age">Wybierz swój wiek</label>
+					<select class="selectpicker form-control" id="age" data-size="5" data-dropup-auto="false" data-width="100%" data-style="" title="Wybierz wiek" data-validation="required" required></select>
+					<div class="invalid-feedback">Wybierz wiek z listy.</div>
+				</div>
+				<div class="form-group form-check">
+					<label class="form-check-label" style="margin-left: 10px">
+						<input class="form-check-input" type="checkbox" name="remember" required> Zapoznałem się z <a href="#">regulaminem</a>
+						<div class="valid-feedback">OK.</div>
+						<div class="invalid-feedback">Zaznacz to pole.</div>
+					</label>
+				</div>
+				<div class="d-flex justify-content-end">
+					<button type="submit" class="btn btn-primary btn-lg" style="min-width: 150px">Zarejestruj</button>
+				</div>
+			</form>
+			<!--
+			<div class="d-flex">
+				<span class="border border-right-0 border-left-0 border-bottom-0 border-primary mw-100 flex-grow-1" style="min-height: 30px"></span>
+				<span class="pr-5 border border-right-0 border-left-0 border-bottom-0 border-danger mw-100" style="min-height: 30px"></span>
+
+			</div>
+			-->
+		</div>
+	</div>
+	
+	<script>
+		window.onload = function() {add_val_cSelect()};
+		
+		function add_val_cSelect() {
+			var select = $("#age");
+			for(var i=18;i<130;i++) {
+				var option = document.createElement("OPTION");
+				option.value = i;
+				option.innerHTML = i;
+				select[0].appendChild(option);
+			}
+		};
+
+		// Disable form submissions if there are invalid fields
+		(function() {
+			'use strict';
+			window.addEventListener('load', function() {
+				// Get the forms we want to add validation styles to
+				var forms = document.getElementsByClassName('needs-validation');
+				// Loop over them and prevent submission
+				var validation = Array.prototype.filter.call(forms, function(form) {
+					form.addEventListener('submit', function(event) {
+						if (form.checkValidity() === false) {
+							event.preventDefault();
+							event.stopPropagation();
+						}
+						form.classList.add('was-validated');
+					}, false);
+				});
+			}, false);
+		})();
+		
+	</script>
+</body>
+</html>
